@@ -1,0 +1,192 @@
+╔════════════════════════════════════════════════════════════════════╗
+║         SEANCE 4 - INTÉGRATION FRONTEND/BACKEND + PROJET          ║
+║              RÉSUMÉ DES FICHIERS À TÉLÉCHARGER                    ║
+╚════════════════════════════════════════════════════════════════════╝
+
+📥 TOUS LES FICHIERS NÉCESSAIRES SONT DANS outputs/
+
+═══════════════════════════════════════════════════════════════════
+
+✅ FICHIERS À TÉLÉCHARGER
+──────────────────────────
+
+1. SEANCE-4-GUIDE-COMPLET.md
+   ➜ Guide pédagogique COMPLET (tout ce qu'il faut savoir)
+   ➜ Étapes détaillées
+   ➜ Code template pour APIs et Frontend
+   ➜ Instructions de test
+
+2. bdd-cv.sql
+   ➜ Structure de base de données complète
+   ➜ Tables: etudiants, entreprises, convocations, candidatures
+   ➜ Données de test incluses
+   ➜ Vues et index pour performances
+
+3. postman-collection.json
+   ➜ Collection de tests pour toutes les APIs
+   ➜ Importer dans Postman ou Thunder Client
+   ➜ 5 endpoints à tester
+
+═══════════════════════════════════════════════════════════════════
+
+🚀 ÉTAPES RAPIDES
+──────────────────
+
+1. Lire le guide SEANCE-4-GUIDE-COMPLET.md
+
+2. Charger la base de données:
+   docker-compose exec db mysql -u root -proot cv_platform < bdd-cv.sql
+
+3. Créer les APIs dans app/api/:
+   - config.php
+   - login.php
+   - register.php
+   - cv-form.php
+   - profiles.php
+   - convocation.php
+
+4. Créer votre Frontend dans app/:
+   - index.html (votre design)
+   - style.css (votre CSS)
+   - app.js (votre logique)
+
+5. Tester avec Postman (postman-collection.json)
+
+═══════════════════════════════════════════════════════════════════
+
+📊 STRUCTURE DU PROJET
+──────────────────────
+
+app/
+├── index.html                  ← Votre page d'accueil
+├── style.css                   ← Votre design CSS
+├── app.js                      ← Votre logique JavaScript
+│
+├── api/                        ← APIs Backend
+│   ├── config.php              ← Connexion DB
+│   ├── login.php               ← Authentification
+│   ├── register.php            ← Enregistrement
+│   ├── cv-form.php             ← Gestion CV
+│   ├── profiles.php            ← Affichage profils
+│   └── convocation.php         ← Convocation
+│
+├── uploads/                    ← Photos (généré)
+│   └── .gitkeep
+│
+└── backend/ (optionnel)
+    └── config.php
+
+═══════════════════════════════════════════════════════════════════
+
+⏱️ TIMING ESTIMÉ
+─────────────────
+
+- Setup + copier fichiers: 1h
+- Créer les APIs Backend: 2h
+- Créer le Frontend: 2h
+- Tests et debug: 1h
+- Design et améliorations: 2h
+- Bonus (sessions, uploads, etc): 2h
+
+TOTAL: 9-12h (respecte le planning!)
+
+═══════════════════════════════════════════════════════════════════
+
+✅ FONCTIONNALITÉS À IMPLÉMENTER
+──────────────────────────────────
+
+Obligatoire:
+  ✓ Page d'accueil
+  ✓ Formulaire d'inscription
+  ✓ Formulaire de CV
+  ✓ Affichage des profils
+  ✓ Bouton "Convoquer"
+  ✓ Tests complets
+
+Bonus (si temps):
+  ✓ Authentification avec sessions
+  ✓ Upload de photos
+  ✓ Recherche/filtrage
+  ✓ Historique convocations
+  ✓ Design responsive
+  ✓ Validation complète
+  ✓ Gestion d'erreurs
+
+═══════════════════════════════════════════════════════════════════
+
+🎯 CONSTRAINTS PÉDAGOGIQUES
+─────────────────────────────
+
+✅ VOUS POUVEZ:
+  ✓ Utiliser Bootstrap ou Tailwind
+  ✓ Utiliser des librairies JavaScript
+  ✓ Faire du frontend réactif (fetch API)
+  ✓ Améliorer le design
+
+❌ VOUS NE DEVEZ PAS:
+  ✗ Copier une plateforme complète
+  ✗ Utiliser un framework frontend (React, Vue)
+  ✗ Ignorer le backend PHP fourni
+  ✗ Oublier la validation et la sécurité
+
+═══════════════════════════════════════════════════════════════════
+
+📚 COMMENT UTILISER LE GUIDE
+─────────────────────────────
+
+1. Lire la section "ÉTAPE X"
+2. Copier le code fourni
+3. L'adapter à votre contexte
+4. Tester avec Postman
+5. Passer à l'étape suivante
+
+Le guide est VOTRE feuille de route!
+
+═══════════════════════════════════════════════════════════════════
+
+🆘 EN CAS DE PROBLÈME
+──────────────────────
+
+1. Vérifier que Docker fonctionne:
+   docker-compose ps
+
+2. Vérifier la base de données:
+   docker-compose exec db mysql -u root -proot cv_platform -e "SHOW TABLES;"
+
+3. Vérifier les erreurs PHP:
+   docker-compose logs web
+
+4. Tester les APIs avec Postman
+
+5. Demander de l'aide si besoin!
+
+═══════════════════════════════════════════════════════════════════
+
+🎓 APPRENTISSAGE
+─────────────────
+
+Cette séance vous apprend:
+  ✓ Architecturer un projet web complet
+  ✓ Créer des APIs REST en PHP
+  ✓ Intégrer Frontend et Backend
+  ✓ Gérer une base de données
+  ✓ Tester et déboguer
+  ✓ Déployer avec Docker
+
+Vous aurez créé une application WEB RÉELLE! 🚀
+
+═══════════════════════════════════════════════════════════════════
+
+📝 À RENDRE
+────────────
+
+- Code source complet (GitHub)
+- Fichiers HTML/CSS/JS
+- Fichiers PHP APIs
+- Documentation (README)
+- Postman collection remplie
+- Soutenance le 19/06/2025
+
+═══════════════════════════════════════════════════════════════════
+
+Bon courage! Vous avez tout ce qu'il faut! 🚀

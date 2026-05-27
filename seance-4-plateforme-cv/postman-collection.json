@@ -1,0 +1,165 @@
+{
+  "info": {
+    "name": "JUNIA CV Platform API",
+    "description": "Collection de tests pour les APIs Seance 4",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Register",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nom\": \"Dupont\",\n  \"prenom\": \"Jean\",\n  \"email\": \"jean@test.com\",\n  \"password\": \"test123\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost/api/register.php",
+              "protocol": "http",
+              "host": ["localhost"],
+              "path": ["api", "register.php"]
+            }
+          }
+        },
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"jean@test.com\",\n  \"password\": \"test123\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost/api/login.php",
+              "protocol": "http",
+              "host": ["localhost"],
+              "path": ["api", "login.php"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "CV",
+      "item": [
+        {
+          "name": "Get CV",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost/api/cv-form.php?id=1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "path": ["api", "cv-form.php"],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Save CV",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"etudiant_id\": 1,\n  \"formation\": \"Master Informatique ISEN\",\n  \"experience\": \"Stage 6 mois chez TechCorp\",\n  \"competences\": \"PHP, MySQL, JavaScript, Docker\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost/api/cv-form.php",
+              "protocol": "http",
+              "host": ["localhost"],
+              "path": ["api", "cv-form.php"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Profiles",
+      "item": [
+        {
+          "name": "Get All Profiles",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost/api/profiles.php",
+              "protocol": "http",
+              "host": ["localhost"],
+              "path": ["api", "profiles.php"]
+            }
+          }
+        },
+        {
+          "name": "Get Profiles by Domain",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost/api/profiles.php?domaine=PHP",
+              "protocol": "http",
+              "host": ["localhost"],
+              "path": ["api", "profiles.php"],
+              "query": [
+                {
+                  "key": "domaine",
+                  "value": "PHP"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Convocations",
+      "item": [
+        {
+          "name": "Send Convocation",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"etudiant_id\": 1,\n  \"entreprise_id\": 1,\n  \"date\": \"2026-06-15\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost/api/convocation.php",
+              "protocol": "http",
+              "host": ["localhost"],
+              "path": ["api", "convocation.php"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

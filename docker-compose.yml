@@ -1,0 +1,57 @@
+services:
+  web:
+    image: php:8.1-apache
+    container_name: junia_web
+    ports:
+      - "80:80"
+    volumes:
+      - ./app:/var/www/html
+    environment:
+      - PHP_DISPLAY_ERRORS=1
+    command: >
+      bash -c "apt-get update &&
+               apt-get install -y default-mysql-client &&
+               docker-php-ext-install mysqli pdo pdo_mysql &&
+               a2enmod rewrite &&
+               apache2-foreground"
+    networks:
+      - junia
+    restart: always
+
+  db:
+    image: mysql:8.0
+    container_name: junia_db
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: cv_platform
+      MYSQL_USER: cv_user
+      MYSQL_PASSWORD: password123
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - junia
+    restart: always
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: junia_phpmyadmin
+    ports:
+      - "8081:80"
+    environment:
+      PMA_HOST: db
+      PMA_USER: cv_user
+      PMA_PASSWORD: password123
+    depends_on:
+      - db
+    networks:
+      - junia
+    restart: always
+
+networks:
+  junia:
+    driver: bridge
+
+volumes:
+  db_data:

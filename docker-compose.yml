@@ -30,6 +30,9 @@ services:
       MYSQL_PASSWORD: password123
     volumes:
       - db_data:/var/lib/mysql
+      # Auto-import du schéma au PREMIER démarrage (volume vide).
+      # Les fichiers .sql de ce dossier sont exécutés par ordre alphabétique.
+      - ./app/sql:/docker-entrypoint-initdb.d
     networks:
       - junia
     restart: always

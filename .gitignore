@@ -1,0 +1,10 @@
+# Fichiers générés à l'exécution
+app/uploads/*
+!app/uploads/.gitkeep
+app/mails/*
+!app/mails/.gitkeep
+
+# Divers
+*.log
+.DS_Store
+Thumbs.db

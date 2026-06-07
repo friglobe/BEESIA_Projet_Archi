@@ -1,0 +1,319 @@
+/* =====================================================
+   Plateforme CV JUNIA — Feuille de style principale
+   Charte : violet #6B2C91 / orange #F39200
+   Polices : Montserrat (titres) + Open Sans (corps)
+   Responsive : mobile-first + Media Queries
+   ===================================================== */
+
+/* ----- Variables de la charte ----- */
+:root {
+  --violet: #6B2C91;
+  --violet-clair: #A569BD;
+  --violet-fonce: #4e2069;
+  --orange: #F39200;
+  --orange-clair: #FDB44B;
+
+  --texte: #2b2b35;
+  --texte-doux: #6c6c7a;
+  --fond: #f6f4f9;
+  --blanc: #ffffff;
+  --bordure: #e3dded;
+  --ok: #2e9e5b;
+  --erreur: #d6334c;
+
+  --rayon: 12px;
+  --ombre: 0 4px 18px rgba(75, 30, 105, 0.10);
+  --max-largeur: 1140px;
+}
+
+/* ----- Reset léger ----- */
+*, *::before, *::after { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: "Open Sans", system-ui, sans-serif;
+  color: var(--texte);
+  background: var(--fond);
+  line-height: 1.6;
+}
+h1, h2, h3, h4 { font-family: "Montserrat", sans-serif; line-height: 1.2; color: var(--violet-fonce); }
+a { color: var(--violet); text-decoration: none; }
+a:hover { text-decoration: underline; }
+img { max-width: 100%; display: block; }
+
+/* =====================================================
+   En-tête / navigation
+   ===================================================== */
+.site-header {
+  background: linear-gradient(90deg, var(--violet), var(--violet-clair));
+  color: var(--blanc);
+  box-shadow: var(--ombre);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+.header-inner {
+  max-width: var(--max-largeur);
+  margin: 0 auto;
+  padding: 0.7rem 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.logo { display: flex; flex-direction: column; line-height: 1; }
+.logo-junia { font-family: "Montserrat", sans-serif; font-weight: 700; font-size: 1.4rem; color: var(--blanc); }
+.logo-sub { font-size: .72rem; color: var(--orange-clair); letter-spacing: .5px; }
+.logo:hover { text-decoration: none; }
+
+.main-nav {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  flex-wrap: wrap;
+}
+.main-nav a { color: var(--blanc); font-weight: 600; font-size: .95rem; }
+.main-nav a:hover { color: var(--orange-clair); text-decoration: none; }
+.nav-user { color: var(--orange-clair); font-size: .9rem; }
+
+.btn-nav {
+  background: var(--orange);
+  padding: .45rem .9rem;
+  border-radius: var(--rayon);
+  color: var(--blanc) !important;
+}
+.btn-nav:hover { background: var(--orange-clair); text-decoration: none; }
+
+.nav-toggle {
+  display: none;
+  margin-left: auto;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  color: var(--blanc);
+  cursor: pointer;
+}
+
+/* =====================================================
+   Conteneur principal
+   ===================================================== */
+.site-main {
+  max-width: var(--max-largeur);
+  margin: 2rem auto;
+  padding: 0 1.2rem;
+  min-height: 60vh;
+}
+
+/* =====================================================
+   Boutons
+   ===================================================== */
+.btn {
+  display: inline-block;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: .7rem 1.4rem;
+  border-radius: var(--rayon);
+  background: var(--violet);
+  color: var(--blanc);
+  transition: transform .08s ease, background .2s ease;
+}
+.btn:hover { background: var(--violet-fonce); text-decoration: none; }
+.btn:active { transform: scale(.98); }
+.btn-orange { background: var(--orange); }
+.btn-orange:hover { background: #d97f00; }
+.btn-ghost { background: transparent; color: var(--violet); border: 2px solid var(--violet); }
+.btn-ghost:hover { background: var(--violet); color: var(--blanc); }
+.btn-sm { padding: .4rem .8rem; font-size: .85rem; }
+.btn-danger { background: var(--erreur); }
+
+/* =====================================================
+   Cartes & grilles
+   ===================================================== */
+.card {
+  background: var(--blanc);
+  border-radius: var(--rayon);
+  box-shadow: var(--ombre);
+  padding: 1.5rem;
+}
+.grid {
+  display: grid;
+  gap: 1.4rem;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+/* =====================================================
+   Formulaires
+   ===================================================== */
+.form-card {
+  max-width: 460px;
+  margin: 2rem auto;
+}
+.form-large { max-width: 760px; }
+.field { margin-bottom: 1.1rem; }
+.field label { display: block; font-weight: 600; margin-bottom: .35rem; }
+.field input,
+.field textarea,
+.field select {
+  width: 100%;
+  padding: .65rem .8rem;
+  border: 1px solid var(--bordure);
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 1rem;
+  background: var(--blanc);
+}
+.field input:focus,
+.field textarea:focus,
+.field select:focus {
+  outline: none;
+  border-color: var(--violet-clair);
+  box-shadow: 0 0 0 3px rgba(165, 105, 189, .2);
+}
+.field textarea { min-height: 110px; resize: vertical; }
+.field-inline { display: flex; gap: .5rem; align-items: center; }
+.field-row { display: flex; gap: 1rem; flex-wrap: wrap; }
+.field-row > .field { flex: 1; min-width: 180px; }
+
+.checkbox-group { display: flex; flex-wrap: wrap; gap: .8rem; }
+.checkbox-group label {
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+  font-weight: 400;
+  background: var(--fond);
+  padding: .4rem .8rem;
+  border-radius: 20px;
+  border: 1px solid var(--bordure);
+  cursor: pointer;
+}
+.checkbox-group input { width: auto; }
+
+/* =====================================================
+   Messages d'état (succès / erreur)
+   ===================================================== */
+.alert { padding: .8rem 1rem; border-radius: 8px; margin-bottom: 1rem; font-weight: 600; }
+.alert-ok { background: #e6f6ec; color: var(--ok); border: 1px solid #b6e3c6; }
+.alert-error { background: #fdecef; color: var(--erreur); border: 1px solid #f4c2cb; }
+.hidden { display: none; }
+
+/* =====================================================
+   Badges (domaines de recherche, statuts)
+   ===================================================== */
+.badge {
+  display: inline-block;
+  padding: .2rem .65rem;
+  border-radius: 20px;
+  font-size: .78rem;
+  font-weight: 600;
+  background: var(--violet-clair);
+  color: var(--blanc);
+  margin: .1rem;
+}
+.badge-orange { background: var(--orange); }
+
+/* =====================================================
+   Page d'accueil (hero)
+   ===================================================== */
+.hero {
+  background: linear-gradient(120deg, var(--violet), var(--violet-clair));
+  color: var(--blanc);
+  border-radius: var(--rayon);
+  padding: 3rem 2rem;
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+.hero h1 { color: var(--blanc); font-size: 2.4rem; margin: 0 0 .6rem; }
+.hero p { font-size: 1.15rem; max-width: 640px; margin: 0 auto 1.6rem; opacity: .95; }
+.hero .btn { margin: .3rem; }
+
+.section-titre { text-align: center; margin: 2.5rem 0 1.5rem; }
+
+/* Carte profil (catalogue) */
+.profil-card { display: flex; flex-direction: column; }
+.profil-photo {
+  width: 84px; height: 84px; border-radius: 50%;
+  object-fit: cover; border: 3px solid var(--orange-clair); margin-bottom: .8rem;
+}
+.profil-card h3 { margin: 0 0 .2rem; }
+.profil-meta { color: var(--texte-doux); font-size: .9rem; margin-bottom: .6rem; }
+.profil-card .badges { margin: .4rem 0 .9rem; }
+.profil-card .btn { margin-top: auto; }
+
+/* Tableaux (admin, historique) */
+table.data { width: 100%; border-collapse: collapse; background: var(--blanc); border-radius: var(--rayon); overflow: hidden; box-shadow: var(--ombre); }
+table.data th, table.data td { padding: .7rem .9rem; text-align: left; border-bottom: 1px solid var(--bordure); }
+table.data th { background: var(--violet); color: var(--blanc); font-family: "Montserrat", sans-serif; }
+table.data tr:hover td { background: var(--fond); }
+
+/* =====================================================
+   Filtres du catalogue
+   ===================================================== */
+.filtres {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .8rem;
+  align-items: flex-end;
+  margin-bottom: 1.5rem;
+}
+.filtres .field { margin-bottom: 0; }
+
+/* =====================================================
+   Modale (convocation)
+   ===================================================== */
+.modal-overlay {
+  position: fixed; inset: 0;
+  background: rgba(40, 20, 60, .55);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 100; padding: 1rem;
+}
+.modal {
+  background: var(--blanc);
+  border-radius: var(--rayon);
+  max-width: 480px; width: 100%;
+  padding: 1.8rem;
+  box-shadow: 0 10px 40px rgba(0,0,0,.3);
+}
+.modal h2 { margin-top: 0; }
+
+/* =====================================================
+   Pied de page
+   ===================================================== */
+.site-footer {
+  background: var(--violet-fonce);
+  color: #e6dcef;
+  margin-top: 3rem;
+}
+.footer-inner {
+  max-width: var(--max-largeur);
+  margin: 0 auto;
+  padding: 2rem 1.2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer-links { display: flex; gap: 1.2rem; flex-wrap: wrap; }
+.footer-links a { color: var(--orange-clair); }
+.footer-copy { font-size: .82rem; opacity: .8; width: 100%; text-align: center; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,.12); }
+
+/* =====================================================
+   RESPONSIVE — Media Queries
+   ===================================================== */
+@media (max-width: 768px) {
+  .nav-toggle { display: block; }
+  .main-nav {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: .8rem;
+    gap: .6rem;
+  }
+  .main-nav.open { display: flex; }
+  .header-inner { flex-wrap: wrap; }
+  .hero h1 { font-size: 1.8rem; }
+  .footer-inner { flex-direction: column; text-align: center; }
+}

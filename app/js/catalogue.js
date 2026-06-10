@@ -77,10 +77,13 @@ function afficherProfils(profils) {
         <div class="badges">${badges}</div>
         ${bio}
         ${p.competences ? `<p><strong>Compétences :</strong> ${esc(p.competences)}</p>` : ""}
-        <button class="btn btn-orange btn-convoquer"
-                data-id="${p.id}" data-nom="${esc(p.prenom)} ${esc(p.nom)}">
-          Convoquer
-        </button>
+        <div style="display:flex;gap:.5rem;margin-top:auto">
+          <a class="btn btn-ghost btn-sm" href="/pages/cv.php?id=${p.id}">Voir le CV</a>
+          <button class="btn btn-orange btn-sm btn-convoquer"
+                  data-id="${p.id}" data-nom="${esc(p.prenom)} ${esc(p.nom)}">
+            Convoquer
+          </button>
+        </div>
       </article>`;
     })
     .join("");

@@ -17,7 +17,10 @@ require __DIR__ . '/../inc/header.php';
 ?>
 
 <section class="card form-large">
-  <h1>Mon CV</h1>
+  <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.6rem">
+    <h1 style="margin:0">Mon CV</h1>
+    <a href="/pages/cv.php" class="btn btn-ghost btn-sm">👁️ Aperçu de mon CV</a>
+  </div>
   <p class="profil-meta">Complétez votre profil : il sera visible par les entreprises partenaires dans le catalogue.</p>
 
   <div id="message" class="hidden"></div>

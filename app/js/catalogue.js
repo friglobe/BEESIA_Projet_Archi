@@ -102,10 +102,12 @@ const modal = document.getElementById("modal-convocation");
 document.getElementById("catalogue").addEventListener("click", (e) => {
   const btn = e.target.closest(".btn-convoquer");
   if (!btn) return;
+  // On réinitialise le formulaire AVANT de remplir le champ caché :
+  // sinon reset() effacerait l'ID candidat qu'on vient de définir.
+  document.getElementById("form-convocation").reset();
   document.getElementById("conv-etudiant-id").value = btn.dataset.id;
   document.getElementById("modal-nom").textContent = "Candidat : " + btn.dataset.nom;
   document.getElementById("modal-message").className = "hidden";
-  document.getElementById("form-convocation").reset();
   modal.classList.remove("hidden");
 });
 
